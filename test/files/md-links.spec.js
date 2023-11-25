@@ -1,4 +1,4 @@
-const { mdLinks, readFiles, validate, normalizeURL } = require('../src/mdLinks.js');
+const { mdLinks, readFiles, validate, normalizeURL } = require('../../scr/index.js');
 const fs = require('fs');
 const path = require('path');
 

@@ -19,12 +19,15 @@ function validate(link) {
 
     const request = protocol.request(link.href, requestOptions, (res) => {
       const { statusCode } = res;
-      const ok = statusCode >= 200 && statusCode < 400 ? 'PASS' : 'ERROR';
-      resolve({ link, status: statusCode, ok });
+      if (statusCode >= 200 && statusCode < 400) {
+        resolve({ ...link, status: statusCode, ok: 'PASS' });
+      } else {
+        resolve({ ...link, status: statusCode, ok: 'ERROR' });
+      }
     });
 
     request.on('error', () => {
-      resolve({ link, status: 'FAIL', ok: 'FAIL' });
+      resolve({ ...link, status: 'FAIL', ok: 'FAIL' });
     });
 
     request.end();
@@ -34,7 +37,7 @@ function validate(link) {
 function readFiles(filePath) {
   return new Promise((resolve, reject) => {
     if (path.extname(filePath) !== '.md') {
-      reject(new Error('O arquivo ou diretório não é um arquivo .md'));
+      reject(new Error('File or directory not a .md'));
     } else {
       fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
@@ -81,7 +84,7 @@ function mdLinks(filePath, options) {
               reject(error);
             });
         } else if (options && options.stats) {
-          const uniqueLinks = Array.from(new Set(links.map((link) => link.href));
+          const uniqueLinks = Array.from(new Set(links.map((link) => link.href)));
           const stats = {
             total: links.length,
             unique: uniqueLinks.length,
@@ -89,7 +92,7 @@ function mdLinks(filePath, options) {
           };
           resolve(stats);
         } else {
-          resolve(links)
+          resolve(links);
         }
       })
       .catch((error) => {
@@ -98,7 +101,6 @@ function mdLinks(filePath, options) {
   });
 }
 
-// Exporta as funções como parte de um módulo
 module.exports = {
   mdLinks,
   readFiles,
