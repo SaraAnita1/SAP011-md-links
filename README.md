@@ -25,9 +25,10 @@ com este formato em qualquer repositório (começando pelo tradicional
 
 Os arquivos `Markdown` normalmente contém _links_ que podem estar
 quebrados, ou que já não são válidos, prejudicando muito o valor da
-informação que está ali.
+informação que está ali, com essa premissa nasce o md-links com a ideia de verificar a integridade 
+dos arquivos .md dentro do seu projeto.
 
-Uma comunidade open source nos propôs criar uma ferramenta, usando
+o estudo de caso que foi proposto pela Laboratoria foi: Uma comunidade open source nos propôs criar uma ferramenta, usando
 [Node.js](https://nodejs.org/), que leia e analise arquivos no formato
 `Markdown`, para verificar os arquivos que contenham links e mostrar algumas
 estatísticas.
