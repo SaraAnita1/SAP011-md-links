@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const chalk = require('chalk');
-const { mdLinks } = require('./mdLinks.js');
+const { mdLinks } = require('./index.js');
 
 // Obtém o caminho do arquivo a partir dos argumentos da linha de comando
 const filePath = process.argv[2];

@@ -1,12 +1,33 @@
 {
-  "name": "md-links-sara-anita",
+  "name": "md-links-sara-anita-sa",
   "version": "0.3.0",
+  "description": " library that was born to simplify",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HommaTech/mql-simplify.git"
+  },
+  "keywords": [
+    "mql5",
+    "mql",
+    "metatrader"
+  ],
+  "author": "Sara Anita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaraAnita1/SAP011-md-links"
+  },
+  "homepage": "https://github.com/SaraAnita1",
   "engines": {
     "node": ">=16.x"
   },
   "scripts": {
     "lint": "npx eslint ./src",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "compile": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./compile.ps1"
   },
   "bin": {
     "md-links": "src/cli.js"
@@ -18,7 +39,8 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "eslint-config-airbnb-base": "^15.0.0"
+    "eslint-config-airbnb-base": "^15.0.0",
+    "md-links-sara-anita-sa": "^0.3.0"
   },
   "devDependencies": {
     "eslint": "^8.51.0",
